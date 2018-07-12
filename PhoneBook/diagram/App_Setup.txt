@@ -19,5 +19,17 @@ DB backup file: PBDB20180712.sql
   Right click on the project --> Build Path --> Configure Build Path ...
   Go to Libraries tab --> Add Library --> select  Maven Managed Dependencies.
   
-Application WAR can be found in the "target" directory
+contact Table creation script:
+
+CREATE TABLE `daphoneb`.`contact` (
+  `c_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `phone_number` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`c_id`),
+  INDEX `fnidx` (`first_name` ASC),
+  INDEX `lnidx` (`last_name` ASC),
+  INDEX `pnidx` (`phone_number` ASC),
+  UNIQUE INDEX `unidx` (`first_name` ASC, `last_name` ASC, `phone_number` ASC))
+  ENGINE=InnoDB  DEFAULT CHARSET=utf8;
  
